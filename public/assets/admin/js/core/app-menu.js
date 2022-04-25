@@ -282,7 +282,7 @@
               if( searchFilter.parent().hasClass('has-sub') ){
                 searchFilter.show()
                 .parents('li').show()
-                .addClass('open')
+                // .addClass('open')
                 .closest('li')
                 .children('a').show()
                 .children('li').show();
@@ -918,7 +918,7 @@
       else{
         topPos = menutop + $menuItem.height() + borderWidth;
       }
-      
+
       if($body.data('menu') == 'vertical-content-menu'){
         ul.addClass('menu-popout').appendTo('.main-menu-content').css({
           'top' : topPos,
