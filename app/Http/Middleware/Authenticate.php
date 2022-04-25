@@ -4,6 +4,7 @@ namespace EcommerceCourse\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Http\Request;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class Authenticate extends Middleware
 {
@@ -16,7 +17,7 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            if ($request->is(['admin', 'admin/*']))
+            if ($request->is(['admin', 'admin/*', LaravelLocalization::setLocale() . '/admin']))
                 return route('admin.login');
             return route('login');
         }
