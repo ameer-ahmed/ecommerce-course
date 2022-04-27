@@ -1,7 +1,7 @@
 <?php
 
 use EcommerceCourse\Http\Controllers\Dashboard\HomeController;
-use EcommerceCourse\Http\Controllers\Dashboard\LoginController;
+use EcommerceCourse\Http\Controllers\Dashboard\AuthController;
 use EcommerceCourse\Http\Controllers\Dashboard\SettingsController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -22,9 +22,9 @@ Route::group([
     });
 
     Route::group(['middleware' => 'guest:admin,web'], function () {
-        Route::get('/login', [LoginController::class, 'viewLogin'])->name('admin.login');
-        Route::post('/login', [LoginController::class, 'login']);
+        Route::get('/login', [AuthController::class, 'viewLogin'])->name('admin.login');
+        Route::post('/login', [AuthController::class, 'login']);
     });
-    Route::get('/logout', [LoginController::class, 'logout']);
+    Route::get('/logout', [AuthController::class, 'logout']);
 });
 
