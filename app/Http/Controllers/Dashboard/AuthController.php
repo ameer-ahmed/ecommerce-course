@@ -5,7 +5,7 @@ namespace EcommerceCourse\Http\Controllers\Dashboard;
 use EcommerceCourse\Http\Controllers\Controller;
 use EcommerceCourse\Http\Requests\AdminAuthRequest;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
     protected $redirectPath = '/admin';
 
@@ -28,8 +28,9 @@ class LoginController extends Controller
 
     public function logout()
     {
-        if (auth()->guard('admin')->check()) {
-            auth()->guard('admin')->logout();
+        $guard = auth()->guard('admin');
+        if ($guard->check()) {
+            $guard->logout();
             return redirect()->route('admin.login');
         }
     }
