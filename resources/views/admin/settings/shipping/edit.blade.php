@@ -3,19 +3,6 @@
 @section('content')
     <div class="app-content content">
         <div class="content-wrapper">
-            <div class="content-header row">
-                <div class="content-header-left col-md-6 col-12 mb-2">
-                    <div class="row breadcrumbs-top">
-                        <div class="breadcrumb-wrapper col-12">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="">الرئيسية </a>
-                                </li>
-                                <li class="breadcrumb-item active">وسائل التوصيل</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="content-body">
                 <!-- Basic form layout section start -->
                 <section id="basic-form-layouts">
@@ -23,7 +10,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> تعديل  وسيلة التوصيل </h4>
+                                    <h4 class="card-title" id="basic-layout-form">{{ __('admin/settings/edit.edit') }}</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -51,7 +38,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> الاسم </label>
+                                                            <label for="projectinput1">{{ __('admin/settings/edit.name') }}</label>
                                                             <input type="text" value="{{$shippingType->value}}" id="name"
                                                                    class="form-control"
                                                                    placeholder="  "
@@ -64,7 +51,7 @@
 
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> قيمة التوصيل </label>
+                                                            <label for="projectinput1">{{ __('admin/settings/edit.price') }}</label>
                                                             <input type="number" value="{{$shippingType->plain_value}}" id="value"
                                                                    class="form-control"
                                                                    placeholder=""
@@ -207,7 +194,7 @@
 
                                             <div class="form-actions">
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> حفظ
+                                                    <i class="la la-check-square-o"></i>{{ __('admin/settings/edit.save') }}
                                                 </button>
                                             </div>
                                         </form>

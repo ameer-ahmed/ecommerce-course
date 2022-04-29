@@ -15,9 +15,14 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
+        $uri = removeFromString($request->path(), [app()->getLocale(), 'admin'], '/', false, true);
         if (! $request->expectsJson()) {
-            if ($request->is(['admin', 'admin/*', app()->getLocale().'/admin']))
-                return route('admin.login');
+            if ($request->is([
+                'admin',
+                'admin/*',
+                app()->getLocale().'/admin*'
+            ]))
+                return route('admin.login').(!empty($uri) ? '?goto='.$uri : '');
             return route('login');
         }
     }

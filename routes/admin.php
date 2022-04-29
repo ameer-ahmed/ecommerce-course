@@ -2,6 +2,7 @@
 
 use EcommerceCourse\Http\Controllers\Dashboard\HomeController;
 use EcommerceCourse\Http\Controllers\Dashboard\AuthController;
+use EcommerceCourse\Http\Controllers\Dashboard\ProfileController;
 use EcommerceCourse\Http\Controllers\Dashboard\SettingsController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -18,6 +19,11 @@ Route::group([
         Route::group(['prefix' => '/settings'], function () {
             Route::get('/shipping/{type}', [SettingsController::class, 'editShipping'])->name('edit.shipping.methods');
             Route::put('/shipping/{type}', [SettingsController::class, 'saveShipping'])->name('save.shipping.methods');
+        });
+        Route::group(['prefix' => '/profile'], function () {
+            Route::get('/edit', [ProfileController::class, 'editProfile'])->name('edit.profile');
+            Route::put('/edit', [ProfileController::class, 'saveProfile'])->name('save.profile');
+            Route::put('/edit/password', [ProfileController::class, 'savePassword'])->name('save.profile.password');
         });
     });
 

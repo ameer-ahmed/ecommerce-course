@@ -7,7 +7,6 @@ use EcommerceCourse\Http\Requests\AdminAuthRequest;
 
 class AuthController extends Controller
 {
-    protected $redirectPath = '/admin';
 
     public function viewLogin()
     {
@@ -21,9 +20,15 @@ class AuthController extends Controller
             'email' => $request->input('email'),
             'password' => $request->input('password'),
         ], $rememberMe)) {
-            return redirect()->route('admin.home');
+            return $this->customRedirect($request);
         }
         return redirect()->route('admin.login')->with(['error' => 'البيانات المدخلة غير صحيحة.']);
+    }
+
+    private function customRedirect(AdminAuthRequest $request) {
+        if($request->input('goto') !== null && !empty($request->input('goto')))
+            return redirect(route('admin.home').$request->input('goto'));
+        return redirect()->route('admin.home');
     }
 
     public function logout()
