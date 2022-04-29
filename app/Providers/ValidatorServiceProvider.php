@@ -24,8 +24,8 @@ class ValidatorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app['validator']->extend('check_password', function ($attribute, $value) {
-            if(!Hash::check($value, auth('admin')->user()->getAuthPassword()))
+        $this->app['validator']->extend('check_password', function ($attribute, $value, $parameters) {
+            if(!Hash::check($value, auth($parameters[0])->user()->getAuthPassword()))
                 return false;
             return true;
         });

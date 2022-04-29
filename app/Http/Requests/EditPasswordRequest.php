@@ -16,7 +16,7 @@ class EditPasswordRequest extends FormRequest
     public function rules()
     {
         return [
-            'current_password' => 'required|check_password',
+            'current_password' => 'required|check_password:admin',
             'password' => 'required|min:8|confirmed|exclude',
             'password_confirmation' => 'required|exclude',
         ];
