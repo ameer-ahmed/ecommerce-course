@@ -1,5 +1,6 @@
 <?php
 
+use EcommerceCourse\Providers\ValidatorServiceProvider;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -163,7 +164,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        ValidatorServiceProvider::class,
         /*
          * Package Service Providers...
          */
