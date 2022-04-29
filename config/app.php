@@ -176,7 +176,6 @@ return [
         // EcommerceCourse\Providers\BroadcastServiceProvider::class,
         EcommerceCourse\Providers\EventServiceProvider::class,
         EcommerceCourse\Providers\RouteServiceProvider::class,
-
     ],
 
     /*

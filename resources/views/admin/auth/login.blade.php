@@ -23,6 +23,9 @@
                             <form class="form-horizontal form-simple" action="{{route('admin.login')}}" method="post"
                                   novalidate>
                                 @csrf
+                                @if(isset($_GET['goto']) && !empty($_GET['goto']))
+                                    <input type="hidden" name="goto" value="{{ $_GET['goto'] }}">
+                                @endif
                                 <fieldset class="form-group position-relative has-icon-left mb-0">
                                     <input type="text" name="email" class="form-control form-control-lg input-lg"
                                            value="{{old('email')}}" id="email" placeholder="أدخل البريد الالكتروني ">
