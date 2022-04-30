@@ -16,7 +16,7 @@ class SettingDatabaseSeeder extends Seeder
     public function run()
     {
         Setting::setMany([
-            'default_locale' => 'en',
+            'default_locale' => 'ar',
             'default_timezone' => 'Africa/Cairo',
             'reviews_enabled' => true,
             'auto_approve_reviews' => true,

@@ -111,7 +111,7 @@
                                                                    placeholder="  "
                                                                    name="password_confirmation">
                                                             @error("password_confirmation")
-{{--                                                            <span class="text-danger">{{$message}}</span>--}}
+                                                                <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
@@ -122,8 +122,6 @@
                                                 </button>
                                             </div>
                                         </form>
-                                        <pre style="direction: ltr;text-align: left;">
-                                        </pre>
                                     </div>
                                 </div>
                             </div>
